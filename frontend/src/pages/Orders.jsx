@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Title from '../components/Title'
-import { ShopContext } from '../contexts/shopContext'
+import { ShopContext } from '../contexts/shopContext.jsx'
 import axios from 'axios'
 
 function Orders() {

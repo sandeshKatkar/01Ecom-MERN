@@ -1,4 +1,4 @@
-import { ShopContext } from "./shopContext";
+import { ShopContext } from "./shopContext.jsx";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';

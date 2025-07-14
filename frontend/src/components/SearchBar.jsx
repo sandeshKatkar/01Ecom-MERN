@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ShopContext } from '../contexts/shopContext'
+import { ShopContext } from '../contexts/shopContext.jsx'
 import { assets } from '../assets/assets';
 import { useLocation } from 'react-router-dom';
 

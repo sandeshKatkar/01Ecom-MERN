@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../assets/assets';
 import Title from '../components/Title'
-import {ShopContext} from "../contexts/shopContext"
+import {ShopContext} from "../contexts/shopContext.jsx"
 import ProductItem from "../components/ProductItem"
 
 function Collections() {
