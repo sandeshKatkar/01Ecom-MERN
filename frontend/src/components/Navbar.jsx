@@ -6,9 +6,18 @@ import { ShopContext } from '../contexts/shopContext';
 function Navbar() {
 
     const [visible,setVisible]=useState(false);
-    const{setShowSearch,getCartCount}=useContext(ShopContext);
+    const{setShowSearch,getCartCount,navigate,token,setToken,setCartItem}=useContext(ShopContext);
+
+    const logout=()=>{
+        navigate('/login')
+        localStorage.removeItem('token')
+        setToken('')
+        setCartItem({})
+        
+    }
+
   return (
-    <div className='flex items-center justify-between py-5 font-medium'>
+    <div className='flex items-center justify-between py-2 font-medium bg-pink-50 w-full px-5 md:px-10'>
         <img src={assets.logo} alt="" className='w-36' />
         <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
             <NavLink to="/" className="flex flex-col items-center gap-1">
@@ -34,14 +43,19 @@ function Navbar() {
         <div className='flex items-center gap-6'>
             <img onClick={()=>setShowSearch(true)} src={assets.search_icon} alt="" className='w-5 cursor-pointer'/>
             <div className='group relative'>
-                <Link to={'/login'}><img src={assets.profile_icon} alt="" className='w-5 cursor-pointer' /></Link>
-                <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
+                <img onClick={()=>token ? null : navigate('/login')} src={assets.profile_icon} alt="" className='w-5 cursor-pointer' />
+                {/* User dropDowm menu */}
+                {
+                    token && <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
                     <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded'>
                         <p className='cursor-pointer hover:text-black'>My Profile</p>
-                        <p className='cursor-pointer hover:text-black'>Orders</p>
-                        <p className='cursor-pointer hover:text-black'>LogOut</p>
+                        <p onClick={()=>navigate('/orders')} className='cursor-pointer hover:text-black'>Orders</p>
+                        <p onClick={(logout)} className='cursor-pointer hover:text-black'>LogOut</p>
                     </div>
                 </div>
+
+                }            
+
             </div>
 
             <Link to="/cart" className='relative'>
@@ -53,7 +67,7 @@ function Navbar() {
 
             {/* create menu for smaller screen */}
 
-            <div className={`absolute h-full top-0 bottom-0 right-0 overflow-hidden bg-white transition-all ${visible?"w-full":"w-0"} shadow-lg`}>
+            <div className={`absolute h-full top-0 bottom-0 right-0 overflow-hidden bg-pink-50 transition-all ${visible?"w-full":"w-0"} shadow-lg`}>
                 <div className='flex flex-col text-gray-600'>
                     <div className='flex items-center gap-4 p-3 cursor-pointer' onClick={()=>setVisible(false)}>
                         <img src={assets.dropdown_icon} alt="" className='h-4 rotate-180' />

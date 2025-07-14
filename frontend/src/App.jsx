@@ -15,15 +15,16 @@ import SearchBar from "./components/SearchBar"
 
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
+import Verify from "./pages/Verify"
 function App() {
   
 
   return (
     <>
-     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <Navbar/>
+    <SearchBar/>
+     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[5vw]">
       <ToastContainer/>
-      <Navbar/>
-      <SearchBar/>
       <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/about" element={<About/>} />
@@ -34,6 +35,7 @@ function App() {
           <Route path="/placeOrder" element={<PlaceOrder/>}/>
           <Route path="/product/:productId" element={<Product />} />
           <Route path="/collection" element={<Collection/>}/>
+          <Route path="/verify" element={<Verify/>}/>
       </Routes>
       <Footer/>
      </div>

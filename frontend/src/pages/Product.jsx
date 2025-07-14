@@ -5,7 +5,7 @@ import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
 
 function Product() {
-  const {products,currency,addTOCart}=useContext(ShopContext);
+  const {products,currency,addTOCart,getCartCount}=useContext(ShopContext);
   const{productId}=useParams();
   const [productData,setProductData]=useState(false)
   const[image,setImage]=useState('')
@@ -88,7 +88,7 @@ function Product() {
                   ))
                 }
               </div>
-              <button onClick={()=>addTOCart(productData._id,size)} className='w-60 mt-1 bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
+              <button onClick={()=>{addTOCart(productData._id,size);getCartCount()}} className='w-60 mt-1 bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
               <hr className='mt-1 sm:w-4/5'/>
               <div className='text-sm text-gray-500 flex flex-col gap-1'>
                 <p>100% original product.</p>

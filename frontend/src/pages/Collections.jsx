@@ -91,7 +91,7 @@ function Collections() {
 
         {/* category filter */}
 
-        <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter?"":"hidden"} sm:block`}>
+        <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter?"":"hidden"} sm:block bg-pink-50`}>
           <p>CATEGORIES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
             <p className='flex gap-2'>
@@ -108,7 +108,7 @@ function Collections() {
 
         {/* subCategory Filter */}
 
-                <div className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter?"":"hidden"} sm:block`}>
+                <div className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter?"":"hidden"} sm:block bg-pink-50`}>
           <p>TYPE</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
             <p className='flex gap-2'>
