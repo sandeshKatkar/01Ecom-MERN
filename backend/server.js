@@ -19,15 +19,24 @@ app.use(express.urlencoded({ extended: true }));
 
 dotenv.config();
 
-// connect to DB
-connectDB();
+
 
 //connect cloudinary
 connectCloudinary();
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors(
+    {
+        origin:"https://fashionbackend-three.vercel.app/",
+        methods:["POST","GET"],
+        credentials:true
+
+    }
+))
+
+// connect to DB
+connectDB();
 
 
 // api end points
