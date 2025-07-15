@@ -30,13 +30,12 @@ function Orders({ token }) {
 
     const statusUpdateHandler= async(event,orderId)=>{
       console.log(event.target.value + " " +orderId)
-      console.log(token)
       const status=event.target.value
     try {
       const response=await axios.post(backendUrl+"/api/order/status",{orderId,status},{headers:{token}})
       console.log(response.data.message)
       if (response.data.success) {
-        console.log(response.data)
+        // console.log(response.data)
         await fetchAllOrders()
         toast.success(response.data.message)
       } else {
@@ -51,7 +50,7 @@ function Orders({ token }) {
 
   useEffect(() => {
     fetchAllOrders();
-  }, [token,allOrders])
+  }, [token])
   return (
     <div>
       <h3>Order Page</h3>
