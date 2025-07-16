@@ -1,7 +1,6 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
-import dotenv from 'dotenv';
 import connectDB from './config/mongoDbConnect.js'
 import connectCloudinary from './config/cloudinary.js'
 import userRouter from './routes/user.routes.js'
@@ -15,7 +14,6 @@ const port=4000
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));
-dotenv.config();
 app.use(express.json())
 app.use(cors())
 
