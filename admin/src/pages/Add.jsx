@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {assets} from '../assets/assets'
 import axios from 'axios'
-import {backendUrl} from '../App'
+import { backendUrl } from '../constants.js'
 import { toast } from 'react-toastify'
 
 function Add({token}) {
@@ -23,7 +23,7 @@ function Add({token}) {
 
   const onSubmitHandler=async(e)=>{
     e.preventDefault()
-    console.log(name,description,price,category,subCategory,bestseller,sizes)
+    // console.log(name,description,price,category,subCategory,bestseller,sizes)
     try {
       const formdata=new FormData()
 

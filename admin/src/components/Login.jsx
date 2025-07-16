@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { backendUrl } from '../App'
+import { backendUrl } from '../constants.js' 
 import { toast } from 'react-toastify'
 const Login = ({setToken}) => {
     const [email,setEmail]=useState('')

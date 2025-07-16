@@ -13,11 +13,11 @@ import orderRouter from './routes/order.routes.js';
 const app=express()
 const port=4000
 
+// middlewares
 app.use(express.urlencoded({ extended: true }));
-
-
-
 dotenv.config();
+app.use(express.json())
+app.use(cors())
 
 
 
@@ -25,9 +25,9 @@ dotenv.config();
 //connect cloudinary
 connectCloudinary();
 
-// middlewares
-app.use(express.json())
-app.use(cors())
+// connect database
+connectDB();
+
 
 
 // api end points

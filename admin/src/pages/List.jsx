@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import {backendUrl,currency} from "../App"
+import { backendUrl,currency } from '../constants.js'
 import { toast } from 'react-toastify';
 import { assets } from '../assets/assets';
 
@@ -48,7 +48,7 @@ function List({token}) {
 
 useEffect(() => {
   if (token) {
-    console.log("Fetching product list with token:", token);
+    // console.log("Fetching product list with token:", token);
     fetchList();
   }
 }, [token]);

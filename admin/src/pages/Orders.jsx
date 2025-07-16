@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import axios from 'axios'
-import { backendUrl, currency } from '../App'
+import { backendUrl,currency } from '../constants.js'
 import { useEffect } from 'react'
 import { assets } from '../assets/assets'
 
@@ -29,11 +29,11 @@ function Orders({ token }) {
   }
 
     const statusUpdateHandler= async(event,orderId)=>{
-      console.log(event.target.value + " " +orderId)
+      // console.log(event.target.value + " " +orderId)
       const status=event.target.value
     try {
       const response=await axios.post(backendUrl+"/api/order/status",{orderId,status},{headers:{token}})
-      console.log(response.data.message)
+      // console.log(response.data.message)
       if (response.data.success) {
         // console.log(response.data)
         await fetchAllOrders()
@@ -90,7 +90,7 @@ function Orders({ token }) {
               </div>
 
               <p className='text-sm sm:text-[15px]'>{currency} {order.amount}</p>
-                  {console.log(order.status)}
+                  
               <select onChange={(event)=>statusUpdateHandler(event,order._id)} value={order.status} className='p-2 font-semibold'>
                 <option value="Order Placed">Order Placed</option>
                 <option value="Packing">Packing</option>
