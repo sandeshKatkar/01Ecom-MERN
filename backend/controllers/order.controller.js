@@ -22,7 +22,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 //  Placing order for COD method
 const placeOrderCod = async (req, res) => {
   try {
-    const { userId, items, amount, address } = req.body;
+    const { userId, items, amount, address } = req.body
     const orderData = {
       userId,
       items,
